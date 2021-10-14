@@ -1,6 +1,26 @@
 version: '3.1'
 
 services:
+  db:
+    image: mysql
+    container_name: mysql_latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./db:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - my-network
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - my-network
   nginx:
     image: nginx
     container_name: nginx
