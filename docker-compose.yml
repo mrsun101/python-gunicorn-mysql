@@ -33,6 +33,7 @@ services:
     depends_on:
       - gunicorn
   gunicorn:
+    image: gunicorn
     build:
       context: ./
       dockerfile: Dockerfile
@@ -44,6 +45,8 @@ services:
       my-network:
         aliases:
           - gunicorn-app
+    depends_on:
+      - db
 
 networks:
   my-network:
