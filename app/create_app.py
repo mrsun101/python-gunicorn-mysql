@@ -35,6 +35,8 @@ def create_app(environ, start_response):
     response = ''
     for c in rec:
         response = response  + '<div> ' + str(c[0]) + '. '+str(c[1])+'</div>'
+    for key,volume in environ.items():
+        response = response + '<div>' + str(key)+ ' --> '+str(volume)+'</div>'
     response = response.encode('utf-8')
     data = b'Hello,world!!!\n'
     start_response('200 OK',[
