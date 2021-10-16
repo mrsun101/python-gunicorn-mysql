@@ -38,9 +38,9 @@ services:
       context: ./
       dockerfile: Dockerfile
     container_name: gunicorn
-    command: gunicorn --reload --bind 0.0.0.0:8000 --workers 4 "app.create_app:create_app"
+    command: gunicorn --reload --bind 0.0.0.0:8000 --workers 4 "create_app:create_app"
     volumes:
-      - ./:/var/www
+      - ./app:/var/www
     networks:
       my-network:
         aliases:
