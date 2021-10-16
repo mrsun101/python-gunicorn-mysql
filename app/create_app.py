@@ -1,5 +1,5 @@
 import os
-from dbmanager import DBManager
+from mymod.dbmanager import DBManager
 
 conn = None
 
